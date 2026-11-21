@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>alastara — Beyond the expected</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=TT+Drugs:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header>
+  <div class="logo"><img src="https://i.ibb.co/M5W04xHM/IMG-5226.jpg" alt="alastara"></div>
+  <nav><a onclick="scrollToId('destinations')">Destinations</a><a onclick="scrollToId('experience')">Experience</a><a onclick="scrollToId('fleet')">Our fleet</a><a onclick="openModal('manage')">Manage booking</a></nav>
+  <div class="navright"><button class="signin" onclick="openModal('account')">Sign in / Join</button><button class="menu" onclick="toast('Menu: Destinations · Experience · Fleet · Manage booking')">☰</button></div>
+</header>
+<section class="hero">
+  <div class="hero-inner"><div class="eyebrow">Swiss precision. Austrian warmth.</div><h1>Beyond the<br>expected.</h1><p>Thoughtfully designed journeys, elevated service and a world that feels a little closer.</p><button class="hero-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Plan your journey&nbsp; →</button></div>
+  <div class="hero-note">A NEW PERSPECTIVE ON TRAVEL</div>
+</section>
+<div class="booking-shell" id="booking">
+<div class="booking-card">
+<div class="tabs"><button class="tab active" id="tabFlights">Flights</button><button class="tab" onclick="toast('Hotel booking is coming to your alastara journey planner.')">Hotels</button><button class="tab" onclick="toast('Car rental partners will appear here.')">Cars</button></div>
+<div class="triptype"><label><input type="radio" name="trip" value="round" checked onchange="tripChange()"> Round trip</label><label><input type="radio" name="trip" value="one" onchange="tripChange()"> One way</label><label><input type="radio" name="trip" value="multi" onchange="tripChange()"> Multi-city</label></div>
+<div class="fields">
+<div class="field"><label>From</label><select id="origin"><option value="ZRH">Zurich (ZRH)</option><option value="VIE">Vienna (VIE)</option><option value="GVA">Geneva (GVA)</option><option value="MUC">Munich (MUC)</option><option value="FRA">Frankfurt (FRA)</option><option value="LHR">London (LHR)</option><option value="DXB">Dubai (DXB)</option><option value="DOH">Doha (DOH)</option><option value="JED">Jeddah (JED)</option><option value="RUH">Riyadh (RUH)</option><option value="IST">Istanbul (IST)</option><option value="NRT">Tokyo (NRT)</option><option value="SIN">Singapore (SIN)</option><option value="BKK">Bangkok (BKK)</option><option value="JFK">New York (JFK)</option><option value="LAX">Los Angeles (LAX)</option><option value="YYZ">Toronto (YYZ)</option><option value="BOS">Boston (BOS)</option><option value="SFO">San Francisco (SFO)</option><option value="DEL">Delhi (DEL)</option><option value="BOM">Mumbai (BOM)</option><option value="CPT">Cape Town (CPT)</option><option value="CAI">Cairo (CAI)</option><option value="MAD">Madrid (MAD)</option><option value="BCN">Barcelona (BCN)</option><option value="FCO">Rome (FCO)</option><option value="CDG">Paris (CDG)</option><option value="AMS">Amsterdam (AMS)</option><option value="BRU">Brussels (BRU)</option><option value="CUN">Cancun (CUN)</option></select></div>
+<div class="field"><label>To</label><select id="destination"><option value="VIE">Vienna (VIE)</option><option value="ZRH">Zurich (ZRH)</option><option value="GVA">Geneva (GVA)</option><option value="MUC">Munich (MUC)</option><option value="FRA">Frankfurt (FRA)</option><option value="LHR">London (LHR)</option><option value="DXB">Dubai (DXB)</option><option value="DOH">Doha (DOH)</option><option value="JED">Jeddah (JED)</option><option value="RUH">Riyadh (RUH)</option><option value="IST">Istanbul (IST)</option><option value="NRT">Tokyo (NRT)</option><option value="SIN">Singapore (SIN)</option><option value="BKK">Bangkok (BKK)</option><option value="JFK">New York (JFK)</option><option value="LAX">Los Angeles (LAX)</option><option value="YYZ">Toronto (YYZ)</option><option value="BOS">Boston (BOS)</option><option value="SFO">San Francisco (SFO)</option><option value="DEL">Delhi (DEL)</option><option value="BOM">Mumbai (BOM)</option><option value="CPT">Cape Town (CPT)</option><option value="CAI">Cairo (CAI)</option><option value="MAD">Madrid (MAD)</option><option value="BCN">Barcelona (BCN)</option><option value="FCO">Rome (FCO)</option><option value="CDG">Paris (CDG)</option><option value="AMS">Amsterdam (AMS)</option><option value="BRU">Brussels (BRU)</option><option value="CUN">Cancun (CUN)</option></select></div>
+<div class="field"><label>Depart</label><input type="date" id="depart" value="2026-12-18"></div>
+<div class="field" id="returnWrap"><label>Return</label><input type="date" id="return" value="2026-12-27"></div>
+<div class="field"><label>Passengers</label><select id="passengers"><option>1 passenger</option><option selected>2 passengers</option><option>3 passengers</option><option>4 passengers</option><option>5 passengers</option><option>6 passengers</option><option>7 passengers</option><option>8 passengers</option><option>9 passengers</option></select></div>
+<div class="field"><label>Cabin</label><select id="cabin"><option>Economy</option><option>Premium Economy</option><option>Business</option><option>First</option></select></div>
+<button class="searchbtn" onclick="searchFlights()">Search</button>
+</div></div></div>
+<section class="section" id="destinations">
+<div class="section-head"><div><div class="eyebrow" style="color:var(--violet)">WHERE WILL YOU GO?</div><h2>Find your somewhere.</h2><p>Inspiring places, with the alastara experience from take-off.</p></div><a class="textlink" onclick="toast('Explore all 100+ destinations in the route finder.')">Explore destinations →</a></div>
+<div class="destinations">
+<div class="destination" style="background-image:url('https://images.unsplash.com/photo-1511739001486-6bfeea3c2a2c?auto=format&fit=crop&w=700&q=80')"><div class="destcopy"><small>From Zurich · direct</small><h3>New York</h3><span>From CHF 690 return</span></div></div>
+<div class="destination" style="background-image:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=700&q=80')"><div class="destcopy"><small>From Vienna · direct</small><h3>London</h3><span>From CHF 185 return</span></div></div>
+<div class="destination" style="background-image:url('https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=700&q=80')"><div class="destcopy"><small>From Zurich · direct</small><h3>Tokyo</h3><span>From CHF 940 return</span></div></div>
+<div class="destination" style="background-image:url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=700&q=80')"><div class="destcopy"><small>From Vienna · direct</small><h3>Paris</h3><span>From CHF 155 return</span></div></div>
+</div></section>
+<section class="promo" id="experience">
+<div><div class="eyebrow" style="color:var(--violet)">A BETTER WAY TO FLY</div><h2>Every detail.<br>Considered.</h2><p>From a warmly welcomed first moment to a restful arrival, we bring together understated design, attentive hospitality and a little more room to breathe. Travel, on your terms.</p><button onclick="toast('Discover the alastara cabin experience.')">Discover our experience</button></div>
+<img src="https://images.unsplash.com/photo-1540339832862-3c6b5a8a2d6f?auto=format&fit=crop&w=1000&q=85" alt="Premium airline cabin">
+</section>
+<section class="section"><div class="section-head"><div><div class="eyebrow" style="color:var(--violet)">TRAVEL, MADE YOURS</div><h2>More than a flight.</h2><p>Make your journey feel effortless from the very beginning.</p></div></div>
+<div class="services">
+<div class="service"><div class="icon">✦</div><h3>Alastara Signature</h3><p>Our premium cabin, thoughtfully refined: privacy, personal service, curated dining and a space to reset.</p></div>
+<div class="service"><div class="icon">◈</div><h3>Journey customisation</h3><p>Choose preferred seats, lounge access, extra baggage, priority services and experiences to fit your trip.</p></div>
+<div class="service"><div class="icon">⌁</div><h3>Alastara Circle</h3><p>A loyalty experience with tier benefits, rewards, companion privileges and recognition at every stage.</p></div>
+</div></section>
+<section class="section fleet" id="fleet"><div class="section-head"><div><div class="eyebrow">OUR FLEET</div><h2>Quietly capable.</h2><p>Modern aircraft, chosen for comfort, efficiency and the right journey.</p></div></div><div class="fleetgrid">
+<div class="aircraft"><h3>787 Dreamliner</h3><p>Long-haul journeys with a quieter cabin, thoughtful lighting and expansive windows.</p><b>Long-haul · Premium cabins</b></div>
+<div class="aircraft"><h3>A350</h3><p>Refined widebody comfort and advanced cabin technology for intercontinental travel.</p><b>Long-haul · Signature</b></div>
+<div class="aircraft"><h3>737 MAX</h3><p>Efficient next-generation aircraft for regional and medium-haul routes.</p><b>Regional · Europe</b></div>
+<div class="aircraft"><h3>A320neo family</h3><p>Flexible, quiet and efficient operations across our short-haul network.</p><b>Short-haul · Regional</b></div>
+</div></section>
+<footer><div class="footgrid"><div><div class="footbrand">alastara</div><p style="font-size:13px;line-height:1.7;color:#b7a9cb">Swiss precision. Austrian warmth.<br>A new perspective on travel.</p></div><div><h4>Explore</h4><a onclick="scrollToId('destinations')">Destinations</a><a onclick="scrollToId('experience')">Experience</a><a onclick="scrollToId('fleet')">Our fleet</a></div><div><h4>Manage</h4><a onclick="openModal('manage')">My bookings</a><a onclick="openModal('account')">Alastara Circle</a><a>Travel information</a></div><div><h4>Support</h4><a>Contact us</a><a>Accessibility</a><a>Conditions of carriage</a></div></div><div class="footbottom"><span>© 2026 alastara. All rights reserved.</span><span>Privacy · Legal · Cookie preferences</span></div></footer>
+<div class="modal" id="modal"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle">Flight options</h2><button class="close" onclick="closeModal()">✕</button></div><div class="modalbody" id="modalBody"></div></div></div><div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase-config.js"></script>
+<script src="./app.js" defer></script></body></html>
