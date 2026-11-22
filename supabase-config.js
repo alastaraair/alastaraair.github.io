@@ -1,3 +1,3 @@
 /* Client-side public settings only. Never paste a Supabase secret/service-role key here. */
-window.ALASTARA_SUPABASE_URL = 'YOUR_SUPABASE_URL';
-window.ALASTARA_SUPABASE_ANON_KEY = 'YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY';
+window.ALASTARA_SUPABASE_URL = 'https://pinxcjarkqaubcqzkino.supabase.co';
+window.ALASTARA_SUPABASE_ANON_KEY = 'sb_publishable_9vVFsBEqDI6gbos9BPvnaA_NdEkOZAW';
