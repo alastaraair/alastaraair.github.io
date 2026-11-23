@@ -1,3 +1,2 @@
-/* Client-side public settings only. Never paste a Supabase secret/service-role key here. */
-window.ALASTARA_SUPABASE_URL = 'https://pinxcjarkqaubcqzkino.supabase.co';
-window.ALASTARA_SUPABASE_ANON_KEY = 'sb_publishable_9vVFsBEqDI6gbos9BPvnaA_NdEkOZAW';
+// Add your Supabase project URL and anon key to enable hosted account + booking storage.
+window.ALASTARA_SUPABASE = { url: "YOUR_SUPABASE_URL", anonKey: "YOUR_SUPABASE_ANON_KEY" };
